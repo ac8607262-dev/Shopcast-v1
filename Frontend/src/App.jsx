@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 function App() {
   const [usuario, setUsuario] = useState(null);
   const [email, setEmail] = useState('');
@@ -22,7 +22,7 @@ function App() {
   // 1. Obtener productos desde el backend
   const obtenerProductos = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/productos');
+      const response = await fetch(`${API_URL}/api/usuarios`);
       const data = await response.json();
       if (Array.isArray(data)) setProductos(data);
     } catch (error) {
@@ -33,7 +33,7 @@ function App() {
   // 2. Obtener categorías desde el backend
   const obtenerCategorias = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/categorias');
+      const response = await fetch(`http://${API_URL}/tu-ruta/api/categorias`);
       const data = await response.json();
       if (Array.isArray(data)) {
         setCategorias(data);
@@ -57,7 +57,7 @@ function App() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch(`http://${API_URL}/tu-ruta/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -81,7 +81,7 @@ function App() {
   const handleCrearCategoria = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/categorias', {
+      const response = await fetch(`http://${API_URL}/tu-ruta/api/categorias`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -113,7 +113,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/productos', {
+      const response = await fetch(`http://${API_URL}/tu-ruta/api/productos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
