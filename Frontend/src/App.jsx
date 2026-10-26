@@ -33,7 +33,7 @@ function App() {
   // 2. Obtener categorías desde el backend
   const obtenerCategorias = async () => {
     try {
-      const response = await fetch(`http://${API_URL}/tu-ruta/api/categorias`);
+      const response = await fetch(`http://${API_URL}/api/categorias`);
       const data = await response.json();
       if (Array.isArray(data)) {
         setCategorias(data);
@@ -57,7 +57,7 @@ function App() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://${API_URL}/tu-ruta/api/login`, {
+      const response = await fetch(`http://${API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -81,7 +81,7 @@ function App() {
   const handleCrearCategoria = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://${API_URL}/tu-ruta/api/categorias`, {
+      const response = await fetch(`http://${API_URL}/api/categorias`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -113,7 +113,7 @@ function App() {
     }
 
     try {
-      const response = await fetch(`http://${API_URL}/tu-ruta/api/productos`, {
+      const response = await fetch(`http://${API_URL}/api/productos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
