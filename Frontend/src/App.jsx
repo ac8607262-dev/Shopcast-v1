@@ -22,7 +22,7 @@ function App() {
   // 1. Obtener productos desde el backend
   const obtenerProductos = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/usuarios`);
+      const response = await fetch(`${API_URL}/api/productos`);
       const data = await response.json();
       if (Array.isArray(data)) setProductos(data);
     } catch (error) {
